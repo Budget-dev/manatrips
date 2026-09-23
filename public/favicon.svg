@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="manaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="manaSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="manaPeak1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB923C" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <linearGradient id="manaPeak2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect width="64" height="64" rx="14" fill="url(#manaBg)" />
+  <!-- Golden Sun -->
+  <circle cx="32" cy="22" r="10" fill="url(#manaSun)" />
+  <!-- Back Mountain Peak -->
+  <polygon points="12,50 30,25 42,40 54,50" fill="url(#manaPeak2)" />
+  <!-- Front Mountain Peak with subtle M shape -->
+  <polygon points="20,50 36,29 48,44 56,50" fill="url(#manaPeak1)" />
+  <!-- Snowcaps / highlights -->
+  <polygon points="30,25 33,30 28,32" fill="#FAF7F2" opacity="0.9" />
+  <polygon points="36,29 40,34 35,36" fill="#FAF7F2" opacity="0.95" />
+  <!-- Base Horizon Line -->
+  <line x1="10" y1="50" x2="54" y2="50" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round" />
+</svg>

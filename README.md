@@ -1,26 +1,24 @@
-# Booking Bliss
+# Mana Trips — Budget Friendly Tours & Adventures
 
-build this website ended to bookibn also with allthe feture adn images neeed to good adn connect the suphbase and do it adb i  need mobile ui uix very important and shaden ui compoents adn only light mode and spinners when loaded dn like apple and need good looks and use 21dev compeonts if possiblble
+Mana Trips is an independent travel platform based in Hyderabad, India, providing curated and budget-friendly weekend getaways, family tours, group excursions, and customized travel packages across India.
 
-This project was built with [Lovable](https://lovable.dev).
+## Features
 
-**Live app**: https://manatrips.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ccd3d800-78e0-4426-a4ba-58f20349a0be).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- **Curated Tour Packages**: Goa, Kashmir, Kerala, Rajasthan, Himachal Pradesh, Ladakh, Andaman, and Uttarakhand.
+- **Dedicated Categories**: Weekend Getaways, Family Tours, Group Adventures, and Custom Packages.
+- **Comprehensive Tour Details**: Day-by-day itineraries, transparent inclusions/exclusions, photo galleries, and traveler FAQs.
+- **Inquiry & Booking System**: Simple trip inquiry form connected to backend data storage.
+- **Mobile First Responsive Design**: Polished, accessible user experience on all device sizes.
+- **SEO & Social Optimization**: Structured Schema.org JSON-LD, Open Graph, and Twitter metadata.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
+```
+
+Build for production:
+```sh
+npm run build
 ```

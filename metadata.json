@@ -1,0 +1,6 @@
+{
+  "name": "Mana Trips — Explore India",
+  "description": "Discover thoughtfully curated tours and adventures from Hyderabad.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
