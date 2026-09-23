@@ -1,0 +1,109 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-muted: var(--hero-muted);
+  --color-sunlight: var(--sunlight);
+  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+:root {
+  color-scheme: light;
+  --radius: 0.55rem;
+  --background: oklch(0.983 0.007 89);
+  --foreground: oklch(0.247 0.045 250);
+  --card: oklch(0.998 0.003 89);
+  --card-foreground: oklch(0.247 0.045 250);
+  --popover: oklch(0.998 0.003 89);
+  --popover-foreground: oklch(0.247 0.045 250);
+  --primary: oklch(0.675 0.205 45);
+  --primary-foreground: oklch(0.998 0.003 89);
+  --secondary: oklch(0.948 0.014 87);
+  --secondary-foreground: oklch(0.247 0.045 250);
+  --muted: oklch(0.956 0.013 88);
+  --muted-foreground: oklch(0.495 0.027 246);
+  --accent: oklch(0.928 0.03 75);
+  --accent-foreground: oklch(0.247 0.045 250);
+  --destructive: oklch(0.56 0.205 27);
+  --destructive-foreground: oklch(0.998 0.003 89);
+  --border: oklch(0.87 0.019 78);
+  --input: oklch(0.87 0.019 78);
+  --ring: oklch(0.675 0.205 45);
+  --chart-1: oklch(0.675 0.205 45);
+  --chart-2: oklch(0.58 0.11 179);
+  --chart-3: oklch(0.43 0.08 248);
+  --chart-4: oklch(0.74 0.15 80);
+  --chart-5: oklch(0.54 0.15 17);
+  --hero-foreground: oklch(0.99 0.004 90);
+  --hero-muted: oklch(0.94 0.016 91);
+  --sunlight: oklch(0.88 0.13 82);
+  --shadow-travel: 0 16px 42px -25px oklch(0.23 0.05 249 / 0.28);
+  --shadow-travel-hover: 0 22px 48px -24px oklch(0.23 0.05 249 / 0.32);
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme inline {
+  --shadow-travel: var(--shadow-travel);
+  --shadow-travel-hover: var(--shadow-travel-hover);
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { min-width: 320px; margin: 0; background: var(--background); color: var(--foreground); }
+button, input, select, textarea { font: inherit; }
+::selection { color: var(--foreground); background: oklch(0.83 0.085 59 / 0.35); }
+.font-hand { font-family: "Caveat", cursive; }
+.hero-landscape { background: oklch(0.4 0.07 246); }
+.hero-shade { background: linear-gradient(90deg, oklch(0.17 0.045 245 / 0.72) 0%, oklch(0.2 0.05 244 / 0.48) 44%, oklch(0.22 0.05 244 / 0.09) 83%), linear-gradient(0deg, oklch(0.19 0.045 245 / 0.25) 0%, transparent 44%); }
+.adventure-banner { background: oklch(0.27 0.06 245); }
+.adventure-shade { background: linear-gradient(90deg, oklch(0.19 0.053 245 / 0.82) 0%, oklch(0.2 0.05 245 / 0.65) 48%, oklch(0.2 0.05 245 / 0.14) 100%), linear-gradient(0deg, oklch(0.2 0.05 245 / 0.17), transparent); }
+.loader-dots { display: inline-block; width: 15px; height: 15px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: loader-spin 0.7s linear infinite; }
+@keyframes loader-spin { to { transform: rotate(360deg); } }
+@media (max-width: 640px) {
+  .hero-landscape { min-height: 554px; }
+  .hero-shade { background: linear-gradient(90deg, oklch(0.17 0.045 245 / 0.66) 0%, oklch(0.2 0.05 244 / 0.40) 70%, oklch(0.22 0.05 244 / 0.12) 100%), linear-gradient(0deg, oklch(0.19 0.045 245 / 0.31) 0%, transparent 54%); }
+  .booking-search { margin-top: -70px; }
+  .trip-card { min-height: 281px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
