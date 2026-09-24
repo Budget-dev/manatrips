@@ -54,14 +54,18 @@ export function BookingDialog({
 
     setSending(true);
     try {
+      const tripName = (initialTrip || initialDestination || "Custom Getaway").slice(0, 120);
+      const parsedTravelers = Math.min(Math.max(parseInt(travelers, 10) || 2, 1), 20);
+
       const { error } = await supabase.from("trip_inquiries").insert({
-        full_name: fullName,
-        email,
-        phone,
-        destination: initialDestination !== "All destinations" ? initialDestination : initialTrip,
+        full_name: fullName.slice(0, 100),
+        email: email.slice(0, 254),
+        phone: phone.slice(0, 30),
+        trip_name: tripName.length >= 2 ? tripName : "Custom Getaway",
         travel_date: travelDate || null,
-        travelers: parseInt(travelers, 10) || 2,
-        notes: message || null,
+        travelers: parsedTravelers,
+        message: (message || "").slice(0, 2000),
+        status: "pending",
       });
 
       if (error) {

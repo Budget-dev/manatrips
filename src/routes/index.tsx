@@ -42,7 +42,6 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { ManaTripsLogo } from "@/components/brand/ManaTripsLogo";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import logo from "@/assets/mana-trips-logo.png.asset.json";
 import heroImage from "@/assets/mana-hero.jpg";
 import goaImage from "@/assets/trip-goa.jpg";
 import kashmirImage from "@/assets/trip-kashmir.jpg";
@@ -174,14 +173,18 @@ function HomePage() {
 
     setBookingSending(true);
     try {
+      const tripName = (selectedTrip || "Custom Getaway").slice(0, 120);
+      const parsedTravelers = Math.min(Math.max(Number(travelers) || 2, 1), 20);
+
       const { error } = await supabase.from("trip_inquiries").insert({
-        full_name: fullName,
-        email,
-        phone,
-        trip_name: selectedTrip,
+        full_name: fullName.slice(0, 100),
+        email: email.slice(0, 254),
+        phone: phone.slice(0, 30),
+        trip_name: tripName.length >= 2 ? tripName : "Custom Getaway",
         travel_date: travelDate || null,
-        travelers: Number(travelers),
-        message,
+        travelers: parsedTravelers,
+        message: (message || "").slice(0, 2000),
+        status: "pending",
       });
       if (error) throw error;
       setBookingComplete(true);

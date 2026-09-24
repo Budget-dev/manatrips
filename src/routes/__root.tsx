@@ -4,6 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
+  ScrollRestoration,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -103,6 +105,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Mana Trips" },
+      { property: "og:url", content: "https://manatrips.in" },
+      { property: "og:image", content: "https://manatrips.in/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Mana Trips — Budget Friendly Tours & Adventures" },
       {
@@ -110,8 +114,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Curated trips departing from Hyderabad. Affordable, verified stays, and memorable adventures across India.",
       },
+      { name: "twitter:image", content: "https://manatrips.in/og-image.jpg" },
     ],
     links: [
+      {
+        rel: "canonical",
+        href: "https://manatrips.in",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -151,9 +160,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash]);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <ScrollRestoration />
+      <div key={location.pathname} className="page-transition-container w-full flex-1">
+        <Outlet />
+      </div>
     </QueryClientProvider>
   );
 }
